@@ -1,0 +1,11 @@
+{
+    "StackName": "benchmark-mao",
+    "UrlReposity": "https://github.com/maocq/t",
+    "VpcId": "vpc-0f4999e5a0807d788",
+    "SubnetId": "subnet-0c486851e72be888d",
+    "InstanceType": "c5.large",
+    "ImageId": "ami-0c7217cdde317cfec",
+    "User": "ubuntu",
+    "KeyName": "johncarm-test",
+    "Key": "/Users/johncarm/mao/keys/johncarm-test.pem"
+}
