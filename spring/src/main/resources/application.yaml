@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "SpringBootWebflux"
+
+database:
+  database: "postgres"
+  schema: "public"
+  username: "postgres"
+  password: "pass"
+  host: "${DATABASE_IP:localhost}"
+  port: 5432
+
+adapter:
+  restconsumer:
+    timeout: 5000
+    url: "http://${EXTERNAL_SERVICE_IP:localhost}:3000"
+
+#logging:
+  #level:
+    #io.r2dbc.postgresql.QUERY: DEBUG
+    #io.r2dbc.postgresql.PARAM: DEBUG
