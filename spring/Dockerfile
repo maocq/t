@@ -1,12 +1,11 @@
-FROM gradle:jdk21-alpine
+## Build
+FROM public.ecr.aws/e0v3l5t6/general-repo:graalvmmaocq-nic-certificates-21 AS build
 WORKDIR /app
 COPY . .
-RUN gradle bootJar
+RUN ./gradlew nativeCompile
 
-
-FROM amazoncorretto:21-alpine3.18
+## Deploy
+FROM fedora
 WORKDIR /app
-COPY --from=0 /app/build/libs/reactive-0.0.1-SNAPSHOT.jar /app/reactive.jar
-
-ENV JAVA_OPTS="-XX:+UseContainerSupport"
-ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar reactive.jar"]
+COPY --from=build /app/build/native/nativeCompile/reactive /app/reactive
+CMD [ "/app/reactive" ]
