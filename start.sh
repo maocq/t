@@ -36,11 +36,16 @@ outputs=$(aws cloudformation describe-stacks --stack-name $StackName | jq '{Outp
 
 app_ip=$(echo $outputs | jq -r '.Outputs[] | select(.OutputKey == "PublicIPApp") | .OutputValue')
 latency_ip=$(echo $outputs | jq -r '.Outputs[] | select(.OutputKey == "PublicIPLatency") | .OutputValue')
+db_ip=$(echo $outputs | jq -r '.Outputs[] | select(.OutputKey == "PublicIPDB") | .OutputValue')
 
 
 ## Latency
 wait_initialized $latency_ip $User $Key
 start_docker_image $latency_ip "latency" $User $Key
+
+## DB
+wait_initialized $db_ip $User $Key
+start_docker_image $db_ip "db" $User $Key
 
 ## App
 wait_initialized $app_ip $User $Key
@@ -48,6 +53,9 @@ start_docker_image $app_ip $case $User $Key
 
 echo "\n\n Latency Ip"
 echo "http://$latency_ip:8080"
+
+echo "\n\n Db Ip"
+echo "http://$db_ip:8080"
 
 echo "\n\n App"
 echo "ssh -o \"StrictHostKeyChecking no\" -i "$Key" $User@$app_ip" > /dev/tty

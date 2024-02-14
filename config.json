@@ -1,8 +1,8 @@
 {
     "StackName": "benchmark-mao",
     "UrlReposity": "https://github.com/maocq/t",
-    "VpcId": "vpc-0f4999e5a0807d788",
-    "SubnetId": "subnet-0c486851e72be888d",
+    "VpcId": "vpc-021fef774c2aa520f",
+    "SubnetId": "subnet-015cc377bb6b2aeb6",
     "InstanceType": "c5.large",
     "ImageId": "ami-0c7217cdde317cfec",
     "User": "ubuntu",

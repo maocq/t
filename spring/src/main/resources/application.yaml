@@ -9,13 +9,13 @@ database:
   schema: "public"
   username: "postgres"
   password: "pass"
-  host: "${DATABASE_IP:localhost}"
+  host: "${DB_IP:localhost}"
   port: 5432
 
 adapter:
   restconsumer:
     timeout: 5000
-    url: "http://${EXTERNAL_SERVICE_IP:localhost}:3000"
+    url: "http://${LATENCY_IP:localhost}:3000"
 
 #logging:
   #level:
