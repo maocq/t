@@ -7,12 +7,10 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 NAME=spring-native
 TAG=v0.0.01
 
-docker build -t $NAME:$TAG -f ../spring-native/Dockerfile .
+docker build -t $NAME:$TAG -f ../spring-native/DockerfileBuildNative .
 docker tag $NAME:$TAG public.ecr.aws/e0v3l5t6/general-repo:$NAME-$TAG
 docker push public.ecr.aws/e0v3l5t6/general-repo:$NAME-$TAG
 
 docker run --rm -it -p 8080:8080 public.ecr.aws/e0v3l5t6/general-repo:$NAME-$TAG
+echo "public.ecr.aws/e0v3l5t6/general-repo:$NAME-$TAG"
 ```
-
-
-docker build -t $NAME:$TAG -f Dockerfile .
