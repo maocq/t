@@ -61,7 +61,7 @@ Resources:
     Properties:
       KeyName: !Ref KeyName
       ImageId: !Ref ImageId
-      InstanceType: c5.xlarge
+      InstanceType: c5.2xlarge
       SubnetId: !Ref SubnetId
       SecurityGroupIds:
         - !Ref MySecurityGroup
@@ -78,7 +78,7 @@ Resources:
     Properties:
       KeyName: !Ref KeyName
       ImageId: !Ref ImageId
-      InstanceType: c5.xlarge
+      InstanceType: c5.2xlarge
       SubnetId: !Ref SubnetId
       SecurityGroupIds:
         - !Ref MySecurityGroup
@@ -95,7 +95,7 @@ Resources:
     Properties:
       KeyName: !Ref KeyName
       ImageId: !Ref ImageId
-      InstanceType: c5.xlarge
+      InstanceType: c5.2xlarge
       SubnetId: !Ref SubnetId
       SecurityGroupIds:
         - !Ref MySecurityGroup
