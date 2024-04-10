@@ -9,9 +9,9 @@ config :distributed_performance_analyzer,
   },
   execution: %{
     steps: 20,
-    increment: 500,
-    duration: 20000,
-    constant_load: true,
+    increment: 30,
+    duration: 10000,
+    constant_load: false,
     dataset: :none,
     separator: ","
   },
